@@ -12,7 +12,7 @@ def extract_part(message: str):
 
 def get_object(controled_objects, name: str):
     _object = controled_objects.get(name)
-    if not _object:
+    if not _object or not getattr(_object, "is_controlable"):
         raise ControledObjectNotFound(f"No controled object {name}")
     return _object
 
