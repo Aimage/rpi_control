@@ -1,5 +1,5 @@
-from rpi_control.controled_object.fake_light import Light
+from rpi_control.controled_object.light import Light
 
 TWILIO_SMS_CONTROLED_OBJECTS = {
-        "GarageLight": Light(21)
+        "GarageLight": Light(23, "GarageLight")
         }
