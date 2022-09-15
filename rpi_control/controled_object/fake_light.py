@@ -4,8 +4,9 @@ from .base import RaspObject
 
 class Light(RaspObject):
 
-    def __init__(self, channel):
+    def __init__(self, channel, name=""):
         self.status = "on"
+        self.name = name
         super().__init__(channel)
 
     def __call__(self, action, value):
@@ -15,8 +16,10 @@ class Light(RaspObject):
         action(value)
 
     def switch(self, value):
+        result = f"{self.name} switched "
         if value == "on":
-            return "Light on"
+            result = result + "on"
         if value == "off":
-            return "Light off"
+            result = result + "off"
+        return result
 

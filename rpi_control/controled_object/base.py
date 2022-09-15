@@ -1,7 +1,8 @@
 class ControledMeta(type):
-    def __new__(cls, *args):
-        setattr(cls, "is_controlable", True) # is_controlable attribute identify if it is contrable or not
-        return super().__new__(cls, *args)
+    def __new__(cls, name, bases, dic):
+        if 'is_controlable' not in dic:
+            dic['is_controlable'] = True # is_controlable attribute identify if it is contrable or not
+        return super().__new__(cls, name, bases, dic)
 
 
 class RaspObject(metaclass=ControledMeta):
