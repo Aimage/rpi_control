@@ -13,9 +13,9 @@ class Light(RaspObject):
     def switch(self, value):
         result = f"{self.name} switched "
         if value == "on":
-            GPIO.output(self.channel, GPIO.LOW)
+            GPIO.output(self.channel, GPIO.HIGH)
             result = result + "on"
         if value == "off":
-            GPIO.output(self.channel, GPIO.HIGH)
+            GPIO.output(self.channel, GPIO.LOW)
             result = result + "off"
         return result
