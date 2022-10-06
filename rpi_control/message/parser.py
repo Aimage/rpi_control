@@ -1,6 +1,6 @@
 import re
 from collections import namedtuple
-from .exceptions import ControledObjectNotFound, ActionNotFound
+from .exceptions import ControlledObjectNotFound, ActionNotFound
 
 Command = namedtuple('Command', ['object_name', 'action', 'parameter'])
 
@@ -10,10 +10,10 @@ def extract_part(message: str):
     return parts
 
 
-def get_object(controled_objects, name: str):
-    _object = controled_objects.get(name)
+def get_object(controlled_objects, name: str):
+    _object = controlled_objects.get(name)
     if not _object or not getattr(_object, "is_controlable"):
-        raise ControledObjectNotFound(f"No controled object {name}")
+        raise ControlledObjectNotFound(f"No controled object {name}")
     return _object
 
 
@@ -36,8 +36,9 @@ def parse_command(message: str):
     return commands
 
 
-def translate_command(controled_objects, command):
-    controled_obj = get_object(controled_objects, command.object_name)
-    action = get_action(controled_obj, command.action)
+def translate_command(controlled_objects, command):
+    controlled_obj = get_object(controlled_objects, command.object_name)
+    action = get_action(controlled_obj, command.action)
     parameter = command.parameter
-    return controled_obj, action, parameter
+    return controlled_obj, action, parameter
+

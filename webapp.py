@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect
 from twilio.twiml.messaging_response import MessagingResponse
 from rpi_control.evaluation import evaluate
-from config import TWILIO_SMS_CONTROLED_OBJECTS
+from config import TWILIO_SMS_CONTROLLED_OBJECTS
 
 app = Flask(__name__)
 
@@ -11,7 +11,7 @@ def rasp_twilio_sms_control():
     # get the SMS content
     sms_content = request.values.get('Body', None)
     # evaluate the sms content
-    results = evaluate(TWILIO_SMS_CONTROLED_OBJECTS, sms_content)
+    results = evaluate(TWILIO_SMS_CONTROLLED_OBJECTS, sms_content)
 
     # prepare the response and send it back
     sms_resp = MessagingResponse()

@@ -1,5 +1,5 @@
 
-class ControledObjectNotFound(Exception):
+class ControlledObjectNotFound(Exception):
     pass
 
 

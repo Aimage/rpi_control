@@ -5,6 +5,6 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
 
-TWILIO_SMS_CONTROLED_OBJECTS = {
+TWILIO_SMS_CONTROLLED_OBJECTS = {
         "GarageLight": Light(18, "GarageLight")
         }
