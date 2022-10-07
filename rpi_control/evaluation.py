@@ -4,7 +4,7 @@ from .message.parser import parse_command, translate_command
 def execute(controlled_objects, command):
     status = "OK"
     try:
-        controled_obj, action, parameter = translate_command(
+        controlled_obj, action, parameter = translate_command(
             controlled_objects, command)
         result = action(parameter)
     except Exception as e:
