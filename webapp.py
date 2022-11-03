@@ -9,7 +9,7 @@ app = Flask(__name__)
 def rasp_twilio_sms_control():
     """perform action defined in a twilio SMS"""
     # get the SMS content
-    sms_content = request.values.get('Body', '')
+    sms_content = request.values.get('body', '')
     # evaluate the sms content
     results = evaluate(TWILIO_SMS_CONTROLLED_OBJECTS, sms_content)
 
